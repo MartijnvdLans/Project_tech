@@ -10,6 +10,10 @@ app.get('/movies', (req, res) => {
   res.send('<h1>This will become a list of movies</h1>')
 });
 
+app.get('/movies/:movieID/:slug', (req, res) => {
+  res.send(`<h1>This will become a detail page for ${req.params.slug}</h1>`)
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
 });
