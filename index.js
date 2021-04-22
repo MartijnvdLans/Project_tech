@@ -14,6 +14,10 @@ app.get('/movies/:movieId/:slug', (req, res) => {
   res.send(`<h1>This will become a detail page for ${req.params.slug}</h1>`)
 });
 
+app.use(function (req, res, next) {
+  res.status(404).send("This page doen not exsist!")
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
 });
