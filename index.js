@@ -10,7 +10,7 @@ app.get('/movies', (req, res) => {
   res.send('<h1>This will become a list of movies</h1>')
 });
 
-app.get('/movies/:movieID/:slug', (req, res) => {
+app.get('/movies/:movieId/:slug', (req, res) => {
   res.send(`<h1>This will become a detail page for ${req.params.slug}</h1>`)
 });
 
