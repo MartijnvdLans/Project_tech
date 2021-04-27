@@ -4,20 +4,28 @@ const port = 3000;
 
 app.use(express.static('public'))
 
+let music = ["Rap" , "R&B", "Pop"]
+
+let musicrandom = music[Math.floor(Math.random() * music.length)];
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/movies', (req, res) => {
-  res.send('<h1>This will be a list of movies!</h1>')
+app.get('/matches', (req, res) => {
+  res.send('<h1>This will be a list of the people you matched with!</h1>')
 })
 
-app.get('/movies/:movieId/:slug', (req, res) => {
-  res.send(`<h1>This is the detail page of ${req.params.slug}!</h1>`)
+app.get('/genres', (req, res) => {
+  res.send(`<h1>This will be a list of genres that will help you find a match!</h1>`)
+})
+
+app.get('/movies-series', (req, res) => {
+  res.send(`<h1>This is a list of movies and series you can add to your list!</h1>`)
 })
 
 app.use(function (req, res, next) {
-  res.status(404).send('404: Pagina niet gevonden')
+  res.status(404).send('404: Page not found')
 })
 
 app.listen(port, () => {
