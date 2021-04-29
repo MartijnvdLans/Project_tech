@@ -3,13 +3,10 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('public'))
-
-let music = ["Rap" , "R&B", "Pop"]
-
-let musicrandom = music[Math.floor(Math.random() * music.length)];
+app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.render('home', {});
 })
 
 app.get('/matches', (req, res) => {
