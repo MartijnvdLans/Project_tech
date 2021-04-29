@@ -6,7 +6,7 @@ app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  res.render('home', {});
+  res.render('home', {title:"This is the homepage"});
 })
 
 app.get('/matches', (req, res) => {
