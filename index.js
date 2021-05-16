@@ -18,7 +18,7 @@ app.get('/genres', (req, res) => {
 })
 
 app.get('/movies-series', (req, res) => {
-  res.send(`<h1>This is a list of movies and series you can add to your list!</h1>`)
+  res.send(`<h1>This is a list of movies and series you can add to your list! test</h1>`)
 })
 
 app.use(function (req, res, next) {
