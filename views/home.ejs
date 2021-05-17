@@ -6,9 +6,41 @@
 <body>
         <%- include('layouts/header.ejs') -%>
 
-    <h1><%= title %></h1>
+    <main>
+        <section class="userPf">
+            <button class="dislike"><img src="/images/cross.svg" alt="dislike"></button>
+            <button class="like"><img src="/images/check.svg" alt="like"></button>
+            <div class="userInfo">
+                <button>▲</button>
+                <div class="overUser">
+                    <h2>Jennifer S.</h2>
+                    <h3>25</h3>
+                    <p>Mijn naam is Jennifer. Ik ben overduidelijk een enorme fan van series, dat is dan ook waarom ik op deze app ben gekomen.<br><br>Ik ben op zoek naar iemand die met mij een nieuwe serie aan durft! Stuur me vooral een berichtje!</p>
+                </div>
+                <h2>Series die Jennifer leuk vind:</h2>
+                <ul>
+                    <li>
+                        <figure></figure>
+                        <figcaption>La Casa De Papel</figcaption>
+                    </li>
+                    <li>
+                        <figure></figure>
+                        <figcaption>Undercover</figcaption>
+                    </li>
+                    <li>
+                        <figure></figure>
+                        <figcaption>Prison Break</figcaption>
+                    </li>
+                    <li>
+                        <figure></figure>
+                        <figcaption>The Vampire Diaries</figcaption>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
         <%- include('layouts/footer.ejs') -%>
-        
+
 </body>
 </html>

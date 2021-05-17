@@ -5,9 +5,171 @@
 }
 
 body {
-    padding: 2em;
+    padding: .5em;
+    background: #fdfdfd;
+    min-height: 100vh;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
-    color: red;
+main {
+    max-width: 100%;
+    position: relative;
+}
+
+/* Hier staat alle style voor de user profielen */
+section.userPf {
+    width: 100%;
+    height: 90vh;
+    background-image: url('../images/meisje.jpg');
+    position: absolute;
+    background-size: cover;
+    background-position: right;
+    border-radius: .5em;
+}
+
+section.userPf .dislike, section.userPf .like {
+    padding: 1em;
+    border: 0;
+    position: absolute;
+    bottom: 12em;
+    border-radius: 90%;;
+}
+
+section.userPf .dislike {
+    background: rgb(146, 0, 0);
+    left: 3em
+}
+
+section.userPf .like {
+    background: #159c15;
+    right: 3em;
+}
+
+section.userPf button img {
+    width: 2.5em;
+}
+
+.userInfo {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1em;
+    position: absolute;
+    height: 8em;
+    bottom: 0;
+    overflow: hidden;
+    border-radius: 2em 2em 0 0;
+}
+
+.userInfo button {
+    display: block;
+    margin: 0 auto;
+    background: transparent;
+    border: 0; 
+}
+
+section h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 24px;
+}
+
+section h3 {
+    font-size: 20px;
+    align-self: flex-end;
+    margin-bottom: 2px;
+    color: #333333;
+    margin-left: .3em;
+}
+
+section .overUser {
+    display: flex;
+    flex-wrap: wrap;
+}    
+
+.overUser p {
+    flex-basis: 100%;
+}
+
+/* info over de series in de userPf */
+
+.userInfo ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.userInfo ul li {
+    width: 50%;
+    padding: .5em;
+    display: flex;
+}
+
+.userInfo ul li:nth-of-type(1) figure {
+    background-image: url('../images/casa.jpg');
+}
+
+.userInfo ul li:nth-of-type(2) figure {
+    background-image: url('../images/undercover.jpg');
+}
+
+.userInfo ul li:nth-of-type(3) figure {
+    background-image: url('../images/prison_break.jpg');
+}
+
+.userInfo ul li:nth-of-type(4) figure {
+    background-image: url('../images/vampire_diaries.jpg');
+}
+
+.userInfo ul li figure {
+    min-width: 16vw;
+    height: 23vw;
+    margin-right: .5em;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Hier begint de footer */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom right, #6eeff8, #00b3c0);
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-around;
+    padding: .8em;
+    position:relative;
+}
+
+footer li:nth-of-type(2) {
+    position: absolute;
+    padding: 1em;
+    background-color: #fff;
+    border-radius: 90%;
+    box-shadow: 0px 0px 6px #aaa;
+    bottom: .5em;
+}
+
+footer li:nth-of-type(2) img{
+    width: 3em;
+}
+
+footer li:nth-of-type(1) {
+    margin-left: -2em;
+}
+
+footer li:nth-of-type(3) {
+    margin-right: -2em;;
+}
+
+footer ul li img {
+    width: 2em;
+}
+
+/* Algemene stijl voor listitems */
+ul {
+    list-style-type: none;
 }
