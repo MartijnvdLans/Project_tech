@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('layouts/head.ejs')-%>
+</head>
+<body>
+        <%- include('layouts/header.ejs') -%>
+
+    <h1><%= title %></h1>
+
+    <form action="/serie/add" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" required>
+        </div>
+        <div>
+            <fieldset>
+                <legend>Categories:</legend>
+                <% categories.forEach(function(category) { %>
+                <input type="checkbox" name="categories" value="<%= category %>" id="<%= category %>">
+                <label for="<%= category %>"><%= category %></label>
+                <% }) %>
+            </fieldset>
+        </div>
+        <div>
+            <label for="storyline">Storyline:</label>
+            <textarea name="storyline" id="" cols="30" rows="10"></textarea>
+        </div>
+        <button>add</button>
+    </form>
+
+        <%- include('layouts/footer.ejs') -%>
+        
+</body>
+</html>

@@ -1,7 +1,12 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const slug = require('slug');
+const dotenv = require('dotenv').config();
 
+console.log(process.env.TESTVAR);
+
+const categories = ["action", "adventure", "sci-fi", "animation", "horror", "thriller", "fantasy", "comedy"]
 
 const movies = [{
   "id": 23486,
@@ -22,6 +27,8 @@ const movies = [{
 ];
 
 app.use(express.static('public'))
+app.use(express.json());
+app.use(express.urlencoded());
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -41,7 +48,18 @@ app.get('/series/:movieId/:slug', (req, res) => {
   res.render('moviedetails', {title: `Movie details for ${movie.name}`, movie})
 })
 
+app.get('/serie/add', (req, res) => {
+  res.render('addmovie', {title: "Add movie", categories})
+})
+
+app.post('/serie/add', (req, res) => {
+  let movie = {slug: slug(req.body.name), id: 32423, name: req.body.name, year: req.body.year, categories: req.body.categories, storyline: req.body.storyline};
+  movies.push(movie);
+  res.render('movielist', {title: "Film is succesvol toegevoegd!", movies})
+})
+
 app.use(function (req, res, next) {
+  
   res.status(404).send('404: Page not found')
 })
 
