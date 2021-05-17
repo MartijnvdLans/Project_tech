@@ -3,10 +3,28 @@ const app = express();
 const port = 3000;
 const slug = require('slug');
 const dotenv = require('dotenv').config();
+const { MongoClient } = require('mongodb');
 
 console.log(process.env.TESTVAR);
 
-const categories = ["action", "adventure", "sci-fi", "animation", "horror", "thriller", "fantasy", "comedy"]
+const categories = ["action", "adventure", "sci-fi", "animation", "horror", "thriller", "fantasy", "comedy"];
+
+let db = null;
+async function connectDB() {
+  const url = process.env.DB_URL;
+  const options = { useUnifiedTopology: true };
+  const client = new MongoClient(url, options)
+  await client.connect();
+  db = await client.db(process.env.DB_NAME)
+}
+
+connectDB()
+  .then(() => {
+    console.log('connected to Mongo!')
+  })
+  .catch( error => {
+    console.log(error)
+  })
 
 const movies = [{
   "id": 23486,
