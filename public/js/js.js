@@ -5,14 +5,14 @@ var personProfile = document.getElementsByClassName('userPf');
 function likeUser() {
     for(var i = 0; i < personProfile.length; i++)
 {
-    this.personProfile.classList.add('right');
+    personProfile[i].classList.add('right');
 }
 };
 
 function dislikeUser() {
     for(var i = 0; i < personProfile.length; i++)
 {
-    this.personProfile.classList.add('left');
+    personProfile[i].classList.add('left');
 }
 };
 
