@@ -26,6 +26,7 @@ section.userPf {
     background-size: cover;
     background-position: right;
     border-radius: .5em;
+    transition: .5s;
 }
 
 section.userPf .dislike, section.userPf .like {
@@ -56,7 +57,6 @@ section.userPf button img {
     position: absolute;
     height: 8em;
     bottom: 0;
-    overflow: hidden;
     border-radius: 2em 2em 0 0;
 }
 
@@ -91,40 +91,18 @@ section .overUser {
 
 /* info over de series in de userPf */
 
-.userInfo ul {
+.cover {
     display: flex;
-    flex-wrap: wrap;
+    flex-basis: 100%;
+    justify-content: space-between;
 }
 
-.userInfo ul li {
-    width: 50%;
-    padding: .5em;
-    display: flex;
+.userInfo figure {
+    width: 100%;
 }
 
-.userInfo ul li:nth-of-type(1) figure {
-    background-image: url('../images/casa.jpg');
-}
-
-.userInfo ul li:nth-of-type(2) figure {
-    background-image: url('../images/undercover.jpg');
-}
-
-.userInfo ul li:nth-of-type(3) figure {
-    background-image: url('../images/prison_break.jpg');
-}
-
-.userInfo ul li:nth-of-type(4) figure {
-    background-image: url('../images/vampire_diaries.jpg');
-}
-
-.userInfo ul li figure {
-    min-width: 16vw;
-    height: 23vw;
-    margin-right: .5em;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+.userInfo figure img {
+    width: 65px;
 }
 
 /* Hier begint de footer */
@@ -172,4 +150,32 @@ footer ul li img {
 /* Algemene stijl voor listitems */
 ul {
     list-style-type: none;
+}
+
+/* Hier staat alles voor de animaties */
+
+.right {
+    animation-name: toright;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transition: .5s;
+}
+
+.left {
+    animation-name: toleft;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transition: .5s;
+}
+
+@keyframes toleft {
+    from {left:0}
+    to {left:-120%}
+}
+
+@keyframes toright {
+    from {right:0}
+    to {right:-120%}
 }

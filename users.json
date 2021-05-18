@@ -1,0 +1,30 @@
+[{
+    "name": "Jessica",
+    "age": 25,
+    "show": "La Casa de Papel",
+    "liked": true,
+    "cover": "casa.jpg"
+  },
+  {
+    "name": "Rebecca",
+    "age": 23,
+    "show": "The Vampire Diaries",
+    "liked": false,
+    "cover": "vampire_diaries.jpg"
+  },
+  {
+    "name": "Hayley",
+    "age": 24,
+    "show": "Undercover",
+    "liked": true,
+    "cover": "undercover.jpg"
+  },
+  {
+    "name": "Lissa",
+    "age": 22,
+    "show": "Prison Break",
+    "liked": false,
+    "cover": "prison_break.jpg"
+  }
+  
+  ]
