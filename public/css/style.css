@@ -47,6 +47,25 @@ header li img{
     overflow: hidden;
 }
 
+section.likesOp {
+    width: 96%;
+    height: 90vh;
+    background-color: #e6e6e6;
+    position: absolute;
+    background-size: cover;
+    background-position: right;
+    border-radius: .5em;
+}
+
+section.likesOp h2 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+}
+
 section.userPf {
     width: 96%;
     height: 90vh;
@@ -144,7 +163,7 @@ section .overUser {
     margin: .5em 0;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
-    padding: .5em 0;0
+    padding: .5em 0;
 }
 
 .match_page section:nth-of-type(1) ul li+li {
@@ -291,7 +310,7 @@ ul {
 
 .eenMatch h2 {
     position: absolute;
-    top: 53%;
+    top: 63%;
     transform: translateY(-50%);
     width: 100%;
     text-align: center;
@@ -315,7 +334,20 @@ ul {
     animation-duration: .5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    transition: .5s;
+}
+
+.rolNaarRechts {
+    animation-name: rolRechts;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.rolNaarLinks {
+    animation-name: rolLinks;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 @keyframes toleft {
@@ -326,4 +358,26 @@ ul {
 @keyframes toright {
     from {right:0}
     to {right:-120%}
+}
+
+@keyframes rolRechts {
+    from {
+        left:-120%;
+        transform: rotate(-720deg)
+    }
+    to {
+        left: 20%;
+        transform: rotate(0deg)
+    }
+}
+
+@keyframes rolLinks {
+    from {
+        right:-120%;
+        transform: rotate(720deg)
+    }
+    to {
+        right: 20%;
+        transform: rotate(0deg)
+    }
 }

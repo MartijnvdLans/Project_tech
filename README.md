@@ -1,3 +1,5 @@
+![NetMatch banner](https://github.com/MartijnvdLans/Project_tech/blob/main/files/netmatch.png?raw=true)
+
 # NetMatch
 
 Netmatch is een app waaop je met gebruikers kunt matchen. Wat deze app anders maakt is dat het op basis van de series die jij leuk vind zou zijn! Wanneer je een serie leuk vind voeg je deze toe aan je profiel en krijg je hierdoor een aantal matches

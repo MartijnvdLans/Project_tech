@@ -42,25 +42,6 @@ app.get('/matches', async (req, res) => {
   res.render('matches', {title:"NetMatch: Matches", matches})
 })
 
-app.get('/profile', (req, res) => {
-  res.render('profile', {title:"NetMatch: Profiel"})
-})
-
-// app.get('/series/:movieId/:slug', (req, res) => {
-//   const movie = movies.find(movie => movie.id == req.params.movieId); 
-//   res.render('moviedetails', {title: `Movie details for ${movie.name}`, movie})
-// })
-
-// app.get('/serie/add', (req, res) => {
-//   res.render('addmovie', {title: "Add movie", categories})
-// })
-
-// app.post('/serie/add', (req, res) => {
-//   let movie = {slug: slug(req.body.name), id: 32423, name: req.body.name, year: req.body.year, categories: req.body.categories, storyline: req.body.storyline};
-//   movies.push(movie);
-//   res.render('movielist', {title: "Film is succesvol toegevoegd!", movies})
-// })
-
 app.use(function (req, res, next) {
   
   res.status(404).send('404: Page not found')

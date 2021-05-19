@@ -6,16 +6,19 @@
 <body>
 
     <main class="swipe_page">
-        <section class="eenMatch displayNone">
-            <button class="close">x</button>
-            <img src="/images/meisje.jpg" alt="match">
-            <img src="/images/meisje.jpg" alt="user">
+        <section class="eenMatch displayNone"  id="matchScreen">
+            <button class="close" id="kruisje">x</button>
+            <img id="imgLeft" class="rolNaarRechts" src="/images/meisje.jpg" alt="match">
+            <img id="imgRight" src="/images/jongen.jpeg" alt="user">
             <h2>Hey is een match!</h2>
+        </section>
+        <section class="likesOp">
+            <h2>Er zijn geen mensen om te liken!</h2>
         </section>        
         <% users.forEach(function(user) { %>
-        <section class="userPf">
-            <button class="dislike"><img src="/images/cross.svg" alt="dislike"></button>
-            <button class="like"><img src="/images/check.svg" alt="like"></button>
+        <section class="userPf" id="userPf">
+            <button class="dislike" id="dislike"><img src="/images/cross.svg" alt="dislike"></button>
+            <button class="like" id="like"><img src="/images/check.svg" alt="like"></button>
             <div class="userInfo">
                 <div class="cover">
                     <div class="overUser">
