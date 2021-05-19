@@ -51,15 +51,10 @@ matchScreen.addEventListener('touchend', function(event) {
 function handleGesure() {
     var swiped = 'swiped: ';
     if (touchendX < touchstartX) {
-        console.log(swiped + 'left!');
+        dislikeUser();
     }
     if (touchendX > touchstartX) {
-        console.log(swiped + 'right!');
+        likeUser();
     }
-    if (touchendY < touchstartY) {
-        console.log(swiped + 'down!');
-    }
-    if (touchendY > touchstartY) {
-        console.log(swiped + 'up!');
     }
 }
