@@ -62,7 +62,4 @@ function handleGesure() {
     if (touchendY > touchstartY) {
         console.log(swiped + 'up!');
     }
-    if (touchendY == touchstartY) {
-        alert('tap!');
-    }
 }
