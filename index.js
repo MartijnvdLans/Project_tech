@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 3000;
 const slug = require('slug');
 const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
@@ -26,7 +27,7 @@ connectDB()
 app.use(express.static('public'))
 app.use(express.json());
 app.set('view engine', 'ejs');
-app.listen(3000 || process.env.PORT, () => {});
+app.listen(port, () => {});
 
 
 app.get('/', async (req, res) => {
