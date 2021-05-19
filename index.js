@@ -27,7 +27,6 @@ connectDB()
 app.use(express.static('public'))
 app.use(express.json());
 app.set('view engine', 'ejs');
-app.listen(port, () => {});
 
 
 app.get('/', async (req, res) => {
@@ -52,3 +51,7 @@ app.use(function (req, res, next) {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
 })
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
