@@ -32,28 +32,48 @@ likeButton.addEventListener('click', likeUser);
 dislikeButton.addEventListener('click', dislikeUser);
 kruisje.addEventListener('click', schermWeg);
 
-var touchstartX = 0;
-var touchstartY = 0;
-var touchendX = 0;
-var touchendY = 0;
+personProfile.addEventListener('touchstart', handleTouchStart, false);        
+personProfile.addEventListener('touchmove', handleTouchMove, false);
 
-matchScreen.addEventListener('touchstart', function(event) {
-    touchstartX = event.screenX;
-    touchstartY = event.screenY;
-}, false);
+var xDown = null;                                                        
+var yDown = null;
 
-matchScreen.addEventListener('touchend', function(event) {
-    touchendX = event.screenX;
-    touchendY = event.screenY;
-    handleGesure();
-}, false); 
+function getTouches(evt) {
+  return evt.touches ||             // browser API
+         evt.originalEvent.touches; // jQuery
+}                                                     
 
-function handleGesure() {
-    var swiped = 'swiped: ';
-    if (touchendX < touchstartX) {
-        dislikeUser();
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];                                      
+    xDown = firstTouch.clientX;                                      
+    yDown = firstTouch.clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
     }
-    if (touchendX > touchstartX) {
-        likeUser();
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            dislikeUser();
+        } else {
+            likeUser();
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */ 
+        } else { 
+            /* down swipe */
+        }                                                                 
     }
-}
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
