@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 const slug = require('slug');
 const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
+const path = require("path");
 
 console.log(process.env.TESTVAR);
 
@@ -24,7 +25,7 @@ connectDB()
     console.log(error)
   })
 
-app.use(express.static('public'))
+  app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.set('view engine', 'ejs');
 
