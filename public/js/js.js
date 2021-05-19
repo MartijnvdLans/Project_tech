@@ -31,3 +31,38 @@ function schermWeg() {
 likeButton.addEventListener('click', likeUser);
 dislikeButton.addEventListener('click', dislikeUser);
 kruisje.addEventListener('click', schermWeg);
+
+var touchstartX = 0;
+var touchstartY = 0;
+var touchendX = 0;
+var touchendY = 0;
+
+matchScreen.addEventListener('touchstart', function(event) {
+    touchstartX = event.screenX;
+    touchstartY = event.screenY;
+}, false);
+
+matchScreen.addEventListener('touchend', function(event) {
+    touchendX = event.screenX;
+    touchendY = event.screenY;
+    handleGesure();
+}, false); 
+
+function handleGesure() {
+    var swiped = 'swiped: ';
+    if (touchendX < touchstartX) {
+        console.log(swiped + 'left!');
+    }
+    if (touchendX > touchstartX) {
+        console.log(swiped + 'right!');
+    }
+    if (touchendY < touchstartY) {
+        console.log(swiped + 'down!');
+    }
+    if (touchendY > touchstartY) {
+        console.log(swiped + 'up!');
+    }
+    if (touchendY == touchstartY) {
+        alert('tap!');
+    }
+}
