@@ -5,28 +5,56 @@
 }
 
 body {
-    padding: .5em;
     background: #fdfdfd;
     min-height: 100vh;
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
+    max-width: 100%;
 }
 
-main {
-    max-width: 100%;
-    position: relative;
+/* Header Styling */
+
+header {
+    background: linear-gradient(to bottom right, #6eeff8, #00b3c0);
+}
+
+header ul {
+    padding: .8em 0;
+}
+
+header li {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+header li p {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+
+header li img{
+    width: 2em;
 }
 
 /* Hier staat alle style voor de user profielen */
+.swipe_page {
+    position: relative;
+    max-width: 100%;
+    height: 100vh;
+    padding: .5em;
+    overflow: hidden;
+}
+
 section.userPf {
-    width: 100%;
+    width: 96%;
     height: 90vh;
     background-image: url('../images/meisje.jpg');
     position: absolute;
     background-size: cover;
     background-position: right;
     border-radius: .5em;
-    transition: .5s;
 }
 
 section.userPf .dislike, section.userPf .like {
@@ -34,7 +62,7 @@ section.userPf .dislike, section.userPf .like {
     border: 0;
     position: absolute;
     bottom: 12em;
-    border-radius: 90%;;
+    border-radius: 90%;
 }
 
 section.userPf .dislike {
@@ -58,6 +86,7 @@ section.userPf button img {
     height: 8em;
     bottom: 0;
     border-radius: 2em 2em 0 0;
+    width: 100%;
 }
 
 .userInfo button {
@@ -67,8 +96,11 @@ section.userPf button img {
     border: 0; 
 }
 
-section h2 {
+h2, h3 {
     font-family: 'Josefin Sans', sans-serif;
+}
+
+h2 {
     font-size: 24px;
 }
 
@@ -97,12 +129,73 @@ section .overUser {
     justify-content: space-between;
 }
 
-.userInfo figure {
-    width: 100%;
-}
-
 .userInfo figure img {
     width: 65px;
+}
+
+/* Hier begint de stijl voor de MATCH pagina */
+
+.match_page section {
+    padding: .5em;
+}
+
+.match_page section:nth-of-type(1) ul {
+    display: flex;
+    margin: .5em 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: .5em 0;0
+}
+
+.match_page section:nth-of-type(1) ul li+li {
+    margin-left: .5em;
+}
+
+.match_page ul li img {
+    width: 3.5em;
+    border-radius: 90%;
+    border: 3px solid #00b3c0;
+}
+
+/* Chats */
+
+.match_page section:nth-of-type(2) {
+    padding: 0
+}
+
+.match_page section:nth-of-type(2) h3 {
+    padding: 0 .5em;
+}
+
+.match_page section:nth-of-type(2) ul {
+    margin-top: .5em;
+}
+
+.match_page section:nth-of-type(2) ul li {
+    padding: 1em .5em;
+    display: flex;
+}
+
+.match_page section:nth-of-type(2) ul li:nth-of-type(1) {
+    background: #f5f5f5;
+}
+
+.match_page section:nth-of-type(2) ul li:nth-of-type(2n) {
+    background: #fcfcfc;
+}
+
+.match_page section:nth-of-type(2) ul li div {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.match_page section:nth-of-type(2) img {
+    margin-right: 1em;
+}
+
+.chat_text {
+    color: #666666;
 }
 
 /* Hier begint de footer */
@@ -152,6 +245,62 @@ ul {
     list-style-type: none;
 }
 
+/* Dit is de styling voor wanneer er een match is! */
+
+.eenMatch {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    color: #fff;
+}
+
+.eenMatch img {
+    width: 7em;
+    border-radius: 90%;
+    border: 3px solid #00b3c0;
+}
+
+.eenMatch .close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    transition: .5s;
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    color: #fff;
+}
+
+.eenMatch img {
+    position: absolute;
+    top: 43%;
+    transform: translateY(-50%);
+}
+
+.eenMatch img:nth-of-type(1) {
+    left: 20%;
+}
+
+.eenMatch img:nth-of-type(2) {
+    right: 20%;
+}
+
+.eenMatch h2 {
+    position: absolute;
+    top: 53%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.displayNone {
+    display: none;
+}
+
 /* Hier staat alles voor de animaties */
 
 .right {
@@ -159,7 +308,6 @@ ul {
     animation-duration: .5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    transition: .5s;
 }
 
 .left {

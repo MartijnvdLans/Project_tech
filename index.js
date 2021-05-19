@@ -35,12 +35,15 @@ app.get('/', async (req, res) => {
   res.render('home', {title:"NetMatch", users})
 })
 
-app.get('/matches', (req, res) => {
-  res.send('<h1>This will be a list of the people you matched with!</h1>')
+app.get('/matches', async (req, res) => {
+  const query = {};
+  const options = {sort: {age: +1}};
+  const matches = await db.collection('Matches').find(query, options).toArray();
+  res.render('matches', {title:"NetMatch: Matches", matches})
 })
 
-app.get('/series', (req, res) => {
-  res.render('movielist', {title: "All movies", movies})
+app.get('/profile', (req, res) => {
+  res.render('profile', {title:"NetMatch: Profiel"})
 })
 
 // app.get('/series/:movieId/:slug', (req, res) => {

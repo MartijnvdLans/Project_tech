@@ -4,9 +4,14 @@
     <%- include('layouts/head.ejs')-%>
 </head>
 <body>
-        <%- include('layouts/header.ejs') -%>
 
-    <main>
+    <main class="swipe_page">
+        <section class="eenMatch displayNone">
+            <button class="close">x</button>
+            <img src="/images/meisje.jpg" alt="match">
+            <img src="/images/meisje.jpg" alt="user">
+            <h2>Hey is een match!</h2>
+        </section>        
         <% users.forEach(function(user) { %>
         <section class="userPf">
             <button class="dislike"><img src="/images/cross.svg" alt="dislike"></button>
@@ -15,8 +20,8 @@
                 <div class="cover">
                     <div class="overUser">
                         <h2><%= user.name %></h2>
-                        <h3>25</h3>
-                        <p>Mijn naam is Jennifer. Ik ben overduidelijk een enorme fan van series, dat is dan ook waarom ik op deze app ...</p>
+                        <h3><%= user.age %></h3>
+                        <p>Mijn naam is <%= user.name %> Ik ben overduidelijk een enorme fan van series, dat is dan ook waarom ik op deze app ...</p>
                     </div>
                         <figure><img src="/images/<%= user.cover %>" alt=""></figure>
                 </div>
