@@ -48,6 +48,4 @@ app.use(function (req, res, next) {
   res.status(404).send('404: Page not found')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+app.listen(port, () => {});
