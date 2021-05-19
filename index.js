@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 const slug = require('slug');
 const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
