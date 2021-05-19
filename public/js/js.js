@@ -56,5 +56,4 @@ function handleGesure() {
     if (touchendX > touchstartX) {
         likeUser();
     }
-    }
 }

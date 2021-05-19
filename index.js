@@ -6,8 +6,6 @@ const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
 const path = require("path");
 
-console.log(process.env.TESTVAR);
-
 let db = null;
 async function connectDB() {
   const url = process.env.DB_URL;
