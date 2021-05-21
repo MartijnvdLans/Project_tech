@@ -26,6 +26,8 @@ connectDB()
   app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 
 app.get('/', async (req, res) => {
@@ -33,6 +35,14 @@ app.get('/', async (req, res) => {
   const options = {sort: {age: +1}};
   const users = await db.collection('users').find(query, options).toArray();
   res.render('home', {title:"NetMatch", users})
+})
+
+app.post('/', async (req, res) => {
+  console.log(req.body.id)
+  // Stap 1: in database opslaan dat de huidige gebruiker iemand anders liked
+  // Stap 2: Id like opslaan
+  // Stap 3: Controleren of de gebruikr mij ook liked
+  // Stap x: Pagina renderen afhankelijk van op de nieuwe gebruiker geliked wordt of animatie
 })
 
 app.get('/matches', async (req, res) => {
