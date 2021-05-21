@@ -39,8 +39,8 @@ var xDown = null;
 var yDown = null;
 
 function getTouches(evt) {
-  return evt.touches ||             // browser API
-         evt.originalEvent.touches; // jQuery
+  return evt.touches ||             
+         evt.originalEvent.touches; 
 }                                                     
 
 function handleTouchStart(evt) {
