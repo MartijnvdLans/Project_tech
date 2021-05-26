@@ -15,14 +15,16 @@
         <section class="likesOp">
             <h2>Er zijn geen mensen om te liken!</h2>
         </section>        
-        <% users.forEach(function(user) { %>
+        <% users.forEach( user => { %>
         <section class="userPf" id="userPf">
-            <!-- <form action="/" method="POST"> Tijdelijk even uit functie -->
+            <form action="/disliked/<%= user._id %>" method="POST">
                 <input type="hidden" name="id" value="<%= user._id %>">
                 <button class="dislike" id="dislike" type="submit"><img src="/images/cross.svg" alt="dislike"></button>
+            </form>
+            <form action="/liked/<%= user._id %>" method="POST">
+                <input type="hidden" name="id" value="<%= user._id %>">
                 <button class="like" id="like" type="submit"><img src="/images/check.svg" alt="like"></button>
-            <!-- </form> -->
-            
+            </form>
             <div class="userInfo">
                 <div class="cover">
                     <div class="overUser">
