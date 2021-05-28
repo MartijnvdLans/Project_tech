@@ -4,7 +4,9 @@ const port = process.env.PORT || 3000;
 const slug = require('slug');
 const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
+const { ObjectId } = require('mongodb');
 const path = require("path");
+const currentUserId = "60af7f7f4bb8382860d3e978";
 
 let db = null;
 async function connectDB() {
@@ -29,43 +31,74 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 app.get('/', async (req, res) => {
   const query = {};
-  const options = {sort: {age: +1}};
-  const users = await db.collection('users').find(query, options).toArray();
-  res.render('home', {title:"NetMatch", users})
+  const options = {sort: {year: +1}}
+  const shows = await db.collection('Shows').findOne(query, options);
+  res.render('home', {title:"NetMatch", shows})
 })
 
-app.post('/liked/*', async (req, res) => {
+app.post('/like', async (req, res) => {
   console.log(req.body.id)
-  const query = {};
-  const options = {sort: {age: +1}};
-  const users = await db.collection('users').find(query, options).toArray();
-  res.render('home', {title:"NetMatch", users})
-  // Stap 1: in database opslaan dat de huidige gebruiker iemand anders liked
-  // Stap 2: Id like opslaan
-  // Stap 3: Controleren of de gebruiker mij ook liked
-  // Stap x: Pagina renderen afhankelijk van op de nieuwe gebruiker geliked wordt of animatie
+  const query = {}
+  const shows = await db.collection('Shows').findOne(query);
+  const update = {
+    "$push": {
+      "liked": (req.body.id)
+    }
+  };
+  // Return the updated document instead of the original document
+  const options = { returnNewDocument: true };
+  return db.collection('profile').findOneAndUpdate(query, update, options)
+    .then(updatedDocument => {
+      if(updatedDocument) {
+        console.log(`Successfully updated document: ${updatedDocument}.`)
+      } else {
+        console.log("No document matches the provided query.")
+      }
+      setTimeout(animation, 1000);
+      function animation() {
+        res.render('home', {title: "Netmatch", shows})
+      }
+    })
+    
+  
+  // like opslaan
+  // laat het volgende profiel zien
 })
 
-app.post('/disliked/*', async (req, res) => {
+app.post('/dislike', async (req, res) => {
   console.log(req.body.id)
-  const query = {};
-  const options = {sort: {age: +1}};
-  const users = await db.collection('users').find(query, options).toArray();
-  res.render('home', {title:"NetMatch", users})
-  // Stap 1: in database opslaan dat de huidige gebruiker iemand anders liked
-  // Stap 2: Id like opslaan
-  // Stap 3: Controleren of de gebruiker mij ook liked
-  // Stap x: Pagina renderen afhankelijk van op de nieuwe gebruiker geliked wordt of animatie
+  const query = {}
+  const shows = await db.collection('Shows').findOne(query);
+  const update = {
+    "$push": {
+      "disliked": (req.body.id)
+    }
+  };
+  // Return the updated document instead of the original document
+  const options = { returnNewDocument: true };
+  return db.collection('profile').findOneAndUpdate(query, update, options)
+    .then(updatedDocument => {
+      if(updatedDocument) {
+        console.log(`Successfully updated document: ${updatedDocument}.`)
+      } else {
+        console.log("No document matches the provided query.")
+      }
+      setTimeout(animation, 1000);
+      function animation() {
+        res.render('home', {title: "Netmatch", shows})
+      }
+    })
 })
 
 app.get('/matches', async (req, res) => {
-  const query = {};
-  const options = {sort: {age: +1}};
-  const matches = await db.collection('Matches').find(query, options).toArray();
-  res.render('matches', {title:"NetMatch: Matches", matches})
+    const queryId = {_id: ObjectId(currentUserId)};
+    let currentUser = await db.collection('profile').findOne(queryId);
+    const queryMovie = {_id: {$in:currentUser.liked}}
+    let myLikes = await db.collection('Shows').find(queryMovie).toArray();
+    console.log(currentUser)
+    res.render('matches', {title:"NetMatch: Matches", myLikes})
 })
 
 app.use(function (req, res, next) {

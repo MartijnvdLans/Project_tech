@@ -8,18 +8,18 @@ const imgRight = document.getElementById('imgRight');
 
 function likeUser() {
     personProfile.classList.add('right');
-    setTimeout(matchMade, 300);
+    // setTimeout(matchMade, 300);
 };
 
 function dislikeUser() {
     personProfile.classList.add('left');
 };
 
-function matchMade() {
-    matchScreen.classList.remove('displayNone')
-    imgLeft.classList.add('rolNaarRechts');
-    imgRight.classList.add('rolNaarLinks');
-}
+// function matchMade() {
+//     matchScreen.classList.remove('displayNone')
+//     imgLeft.classList.add('rolNaarRechts');
+//     imgRight.classList.add('rolNaarLinks');
+// }
 
 function schermWeg() {
     matchScreen.classList.add('displayNone');

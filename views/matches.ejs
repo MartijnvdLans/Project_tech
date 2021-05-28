@@ -8,24 +8,10 @@
 
     <main class="match_page">
         <section>
-            <h3>Je matches:</h3>
+            <h3>Liked Shows</h3>
             <ul>
-                <% matches.forEach(function(match) { %>
-                <li><img src="/images/<%= match.foto %>" alt="profielfoto <%= match.name %>"></li>
-                <% }) %>
-            </ul>
-        </section>
-        <section>
-            <h3>Chatberichten:</h3>
-            <ul>
-                <% matches.forEach(function(match) { %>
-                <li>
-                    <img src="/images/<%= match.foto %>" alt="profielfoto <%= match.name %>">
-                    <div>
-                        <h4><%= match.name %></h4>
-                        <p class="chat_text">Hey! Hoe gaat het?</p>
-                    </div>
-                </li>
+                <% myLikes.forEach(function(match) { %>
+                <li><img src="/images/<%= match.foto %>" alt="profielfoto <%= match.id %>"></li>
                 <% }) %>
             </ul>
         </section>

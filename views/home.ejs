@@ -14,29 +14,26 @@
         </section>
         <section class="likesOp">
             <h2>Er zijn geen mensen om te liken!</h2>
-        </section>        
-        <% users.forEach( user => { %>
-        <section class="userPf" id="userPf">
-            <form action="/disliked/<%= user._id %>" method="POST">
-                <input type="hidden" name="id" value="<%= user._id %>">
+        </section>
+        <section class="userPf" id="userPf" style="background-image:url('/images/<%= shows.foto %>')">
+            <form action="/dislike" method="POST">
+                <input type="hidden" name="id" value="<%= shows._id %>">
                 <button class="dislike" id="dislike" type="submit"><img src="/images/cross.svg" alt="dislike"></button>
             </form>
-            <form action="/liked/<%= user._id %>" method="POST">
-                <input type="hidden" name="id" value="<%= user._id %>">
+            <form action="/like" method="POST">
+                <input type="hidden" name="id" value="<%= shows._id %>">
                 <button class="like" id="like" type="submit"><img src="/images/check.svg" alt="like"></button>
             </form>
             <div class="userInfo">
                 <div class="cover">
                     <div class="overUser">
-                        <h2><%= user.name %></h2>
-                        <h3><%= user.age %></h3>
-                        <p>Mijn naam is <%= user.name %> Ik ben overduidelijk een enorme fan van series, dat is dan ook waarom ik op deze app ...</p>
+                        <h2><%= shows.name %></h2>
+                        <h3><%= shows.year %> - <%= shows.lastEp %></h3>
+                        <p><%= shows.desc %></p>
                     </div>
-                        <figure><img src="/images/<%= user.cover %>" alt=""></figure>
                 </div>
             </div>
         </section>
-        <% }) %>
     </main>
 
         <%- include('layouts/footer.ejs') -%>

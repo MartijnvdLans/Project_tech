@@ -69,10 +69,10 @@ section.likesOp h2 {
 section.userPf {
     width: 96%;
     height: 90vh;
-    background-image: url('../images/meisje.jpg');
+    background-image: url('../images/undercover.jpg');
     position: absolute;
     background-size: cover;
-    background-position: right;
+    background-position: center;
     border-radius: .5em;
 }
 
@@ -80,7 +80,7 @@ section.userPf .dislike, section.userPf .like {
     padding: 1em;
     border: 0;
     position: absolute;
-    bottom: 12em;
+    bottom: 15em;
     border-radius: 90%;
 }
 
@@ -99,12 +99,11 @@ section.userPf button img {
 }
 
 .userInfo {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.9);
     padding: 1em;
     position: absolute;
-    height: 8em;
     bottom: 0;
-    border-radius: 2em 2em 0 0;
+    border-radius: 1em 1em 0 0;
     width: 100%;
 }
 
@@ -124,16 +123,17 @@ h2 {
 }
 
 section h3 {
-    font-size: 20px;
-    align-self: flex-end;
+    font-size: 18px;
     margin-bottom: 2px;
-    color: #333333;
+    color: #00b3c0;
     margin-left: .3em;
+    text-align: right;
 }
 
 section .overUser {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }    
 
 .overUser p {
