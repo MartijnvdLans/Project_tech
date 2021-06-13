@@ -16,11 +16,11 @@
             <h2>Er zijn geen mensen om te liken!</h2>
         </section>
         <section class="userPf" id="userPf" style="background-image:url('/images/<%= shows.foto %>')">
-            <form action="/dislike" method="POST">
+            <form action="/dislike" method="POST" id="dislikeForm">
                 <input type="hidden" name="id" value="<%= shows._id %>">
                 <button class="dislike" id="dislike" type="submit"><img src="/images/cross.svg" alt="dislike"></button>
             </form>
-            <form action="/like" method="POST">
+            <form action="/like" method="POST" id="likeForm">
                 <input type="hidden" name="id" value="<%= shows._id %>">
                 <button class="like" id="like" type="submit"><img src="/images/check.svg" alt="like"></button>
             </form>

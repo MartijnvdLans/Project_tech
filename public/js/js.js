@@ -5,21 +5,18 @@ const matchScreen = document.getElementById('matchScreen');
 const kruisje = document.getElementById('kruisje');
 const imgLeft = document.getElementById('imgLeft');
 const imgRight = document.getElementById('imgRight');
+const likeForm = document.getElementById('likeForm');
+const dislikeForm = document.getElementById('dislikeForm');
 
 function likeUser() {
     personProfile.classList.add('right');
-    // setTimeout(matchMade, 300);
+    likeForm.submit();
 };
 
 function dislikeUser() {
     personProfile.classList.add('left');
+    dislikeForm.submit();
 };
-
-// function matchMade() {
-//     matchScreen.classList.remove('displayNone')
-//     imgLeft.classList.add('rolNaarRechts');
-//     imgRight.classList.add('rolNaarLinks');
-// }
 
 function schermWeg() {
     matchScreen.classList.add('displayNone');
@@ -66,13 +63,7 @@ function handleTouchMove(evt) {
         } else {
             likeUser();
         }                       
-    } else {
-        if ( yDiff > 0 ) {
-            /* up swipe */ 
-        } else { 
-            /* down swipe */
-        }                                                                 
-    }
+    } 
     /* reset values */
     xDown = null;
     yDown = null;                                             

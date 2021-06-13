@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const slug = require('slug');
 const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
@@ -33,13 +33,11 @@ app.use(express.json());
 
 app.get('/', async (req, res) => {
   const query = {};
-  const options = {sort: {year: +1}}
-  const shows = await db.collection('Shows').findOne(query, options);
+  const shows = await db.collection('Shows').findOne(query);
   res.render('home', {title:"NetMatch", shows})
 })
 
 app.post('/like', async (req, res) => {
-  console.log(req.body.id)
   const query = {}
   const shows = await db.collection('Shows').findOne(query);
   const update = {
@@ -68,7 +66,6 @@ app.post('/like', async (req, res) => {
 })
 
 app.post('/dislike', async (req, res) => {
-  console.log(req.body.id)
   const query = {}
   const shows = await db.collection('Shows').findOne(query);
   const update = {
@@ -97,7 +94,7 @@ app.get('/matches', async (req, res) => {
     let currentUser = await db.collection('profile').findOne(queryId);
     const queryMovie = {_id: {$in:currentUser.liked}}
     let myLikes = await db.collection('Shows').find(queryMovie).toArray();
-    console.log(currentUser)
+    console.log(queryMovie)
     res.render('matches', {title:"NetMatch: Matches", myLikes})
 })
 
