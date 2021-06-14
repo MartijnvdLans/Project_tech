@@ -10,8 +10,8 @@
         <section>
             <h3>Liked Shows</h3>
             <ul>
-                <% myLikes.forEach(function(match) { %>
-                <li><img src="/images/<%= match.foto %>" alt="profielfoto <%= match.id %>"><%= match._uid %></li>
+                <% shows.forEach(function(match) { %>
+                <li><img src="/images/<%= match.foto %>" alt="profielfoto <%= match.name %>"><p><%= match.name %></p></li>
                 <% }) %>
             </ul>
         </section>

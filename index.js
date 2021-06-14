@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 const slug = require('slug');
 const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
@@ -90,12 +90,14 @@ app.post('/dislike', async (req, res) => {
 })
 
 app.get('/matches', async (req, res) => {
-    const queryId = {_id: ObjectId(currentUserId)};
-    let currentUser = await db.collection('profile').findOne(queryId);
-    const queryMovie = {_id: {$in:currentUser.liked}}
-    let myLikes = await db.collection('Shows').find(queryMovie).toArray();
-    console.log(queryMovie)
-    res.render('matches', {title:"NetMatch: Matches", myLikes})
+  const query = {}
+  const shows = await db.collection('Shows').find(query).toArray();
+    // const queryId = {_id: ObjectId(currentUserId)};
+    // let currentUser = await db.collection('profile').findOne(queryId);
+    // const queryMovie = {_id: {$in:currentUser.liked}}
+    // let myLikes = await db.collection('Shows').find(queryMovie).toArray();
+    // console.log(queryMovie)
+    res.render('matches', {title:"NetMatch: Matches", shows})
 })
 
 app.use(function (req, res, next) {

@@ -10,12 +10,20 @@ body {
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
     max-width: 100%;
+    padding: 3.5em 0 3em 0;
+}
+
+body.matchingPage {
+    padding: .5em .5em 0 .5em;
 }
 
 /* Header Styling */
 
 header {
     background: linear-gradient(to bottom right, #6eeff8, #00b3c0);
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 header ul {
@@ -43,12 +51,11 @@ header li img{
     position: relative;
     max-width: 100%;
     height: 100vh;
-    padding: .5em;
     overflow: hidden;
 }
 
 section.likesOp {
-    width: 96%;
+    width: 100%;
     height: 90vh;
     background-color: #e6e6e6;
     position: absolute;
@@ -67,7 +74,7 @@ section.likesOp h2 {
 }
 
 section.userPf {
-    width: 96%;
+    width: 100%;
     height: 90vh;
     background-image: url('../images/undercover.jpg');
     position: absolute;
@@ -158,69 +165,31 @@ section .overUser {
     padding: .5em;
 }
 
-.match_page section:nth-of-type(1) ul {
+.match_page section ul {
     display: flex;
     margin: .5em 0;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     padding: .5em 0;
-}
-
-.match_page section:nth-of-type(1) ul li+li {
-    margin-left: .5em;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .match_page ul li img {
-    width: 3.5em;
-    border-radius: 90%;
-    border: 3px solid #00b3c0;
+    width: 40vw;
+    height: 60vw;
+    object-fit: cover; /* zorgt ervoor dat de image niet strecht */
 }
 
-/* Chats */
-
-.match_page section:nth-of-type(2) {
-    padding: 0
+.match_page ul li p {
+    text-align: center;
+    margin: 0 0 1em 0;
 }
 
-.match_page section:nth-of-type(2) h3 {
-    padding: 0 .5em;
-}
-
-.match_page section:nth-of-type(2) ul {
-    margin-top: .5em;
-}
-
-.match_page section:nth-of-type(2) ul li {
-    padding: 1em .5em;
-    display: flex;
-}
-
-.match_page section:nth-of-type(2) ul li:nth-of-type(1) {
-    background: #f5f5f5;
-}
-
-.match_page section:nth-of-type(2) ul li:nth-of-type(2n) {
-    background: #fcfcfc;
-}
-
-.match_page section:nth-of-type(2) ul li div {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-}
-
-.match_page section:nth-of-type(2) img {
-    margin-right: 1em;
-}
-
-.chat_text {
-    color: #666666;
-}
-
-/* Hier begint de footer */
+/* Hier begint de footer/menu balk */
 
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -264,62 +233,6 @@ ul {
     list-style-type: none;
 }
 
-/* Dit is de styling voor wanneer er een match is! */
-
-.eenMatch {
-    background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 9;
-    color: #fff;
-}
-
-.eenMatch img {
-    width: 7em;
-    border-radius: 90%;
-    border: 3px solid #00b3c0;
-}
-
-.eenMatch .close {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    transition: .5s;
-    background: transparent;
-    border: none;
-    font-size: 2em;
-    color: #fff;
-}
-
-.eenMatch img {
-    position: absolute;
-    top: 43%;
-    transform: translateY(-50%);
-}
-
-.eenMatch img:nth-of-type(1) {
-    left: 20%;
-}
-
-.eenMatch img:nth-of-type(2) {
-    right: 20%;
-}
-
-.eenMatch h2 {
-    position: absolute;
-    top: 63%;
-    transform: translateY(-50%);
-    width: 100%;
-    text-align: center;
-}
-
-.displayNone {
-    display: none;
-}
-
 /* Hier staat alles voor de animaties */
 
 .right {
@@ -336,20 +249,6 @@ ul {
     animation-fill-mode: forwards;
 }
 
-.rolNaarRechts {
-    animation-name: rolRechts;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-.rolNaarLinks {
-    animation-name: rolLinks;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
 @keyframes toleft {
     from {left:0}
     to {left:-120%}
@@ -358,26 +257,4 @@ ul {
 @keyframes toright {
     from {right:0}
     to {right:-120%}
-}
-
-@keyframes rolRechts {
-    from {
-        left:-120%;
-        transform: rotate(-720deg)
-    }
-    to {
-        left: 20%;
-        transform: rotate(0deg)
-    }
-}
-
-@keyframes rolLinks {
-    from {
-        right:-120%;
-        transform: rotate(720deg)
-    }
-    to {
-        right: 20%;
-        transform: rotate(0deg)
-    }
 }

@@ -1,10 +1,6 @@
 const likeButton = document.getElementById('like');
 const dislikeButton = document.getElementById('dislike');
 const personProfile = document.getElementById('userPf');
-const matchScreen = document.getElementById('matchScreen');
-const kruisje = document.getElementById('kruisje');
-const imgLeft = document.getElementById('imgLeft');
-const imgRight = document.getElementById('imgRight');
 const likeForm = document.getElementById('likeForm');
 const dislikeForm = document.getElementById('dislikeForm');
 
@@ -18,16 +14,8 @@ function dislikeUser() {
     dislikeForm.submit();
 };
 
-function schermWeg() {
-    matchScreen.classList.add('displayNone');
-    imgLeft.classList.remove('rolNaarRechts');
-    imgRight.classList.remove('rolNaarLinks');
-}
-
-
-likeButton.addEventListener('click', likeUser);
-dislikeButton.addEventListener('click', dislikeUser);
-kruisje.addEventListener('click', schermWeg);
+likeButton.addEventListener('click', likeUser)
+dislikeButton.addEventListener('click', dislikeUser)
 
 personProfile.addEventListener('touchstart', handleTouchStart, false);        
 personProfile.addEventListener('touchmove', handleTouchMove, false);
@@ -57,14 +45,15 @@ function handleTouchMove(evt) {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
         if ( xDiff > 0 ) {
-            dislikeUser();
+            dislikeUser(); // swipe naar links
         } else {
-            likeUser();
+            likeUser(); // swipe naar rechts
         }                       
     } 
-    /* reset values */
+    
+    /* De value wordt reset op opnieuw gebruikt te kunnen worden */
     xDown = null;
     yDown = null;                                             
 };
