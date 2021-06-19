@@ -11,7 +11,9 @@
             <h3>Liked Shows</h3>
             <ul>
                 <% shows.forEach(function(match) { %>
-                <li><img src="/images/<%= match.foto %>" alt="profielfoto <%= match.name %>"><p><%= match.name %></p></li>
+                <li><img src="/images/<%= match.foto %>.jpg" alt="profielfoto <%= match.name %>"
+                    srcset="/images/<%= match.foto%>-250.jpg 100w,
+                    /images/<%= match.foto%>.jpg 2500w"><p><%= match.name %></p></li>
                 <% }) %>
             </ul>
         </section>

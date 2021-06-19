@@ -9,14 +9,17 @@
         <section class="likesOp">
             <h2>Er zijn geen series om te liken!</h2>
         </section>
-        <section class="userPf" id="userPf" style="background-image:url('/images/<%= shows.foto %>')">
+        <section class="userPf" id="userPf">
+            <img class="cover-picture" src="/images/<%= shows.foto %>.jpg" alt="<%= shows.name %>" 
+            srcset="/images/<%= shows.foto%>-250.jpg 100w,
+                    /images/<%= shows.foto%>.jpg 2500w">
             <form action="/dislike" method="POST" id="dislikeForm">
                 <input type="hidden" name="id" value="<%= shows._id %>">
-                <button class="dislike" id="dislike" type="submit"><img src="/images/cross.svg" alt="dislike"></button>
+                <button class="dislike" id="dislike" type="submit"><img src="/images/cross.png" alt="dislike"></button>
             </form>
             <form action="/like" method="POST" id="likeForm">
                 <input type="hidden" name="id" value="<%= shows._id %>">
-                <button class="like" id="like" type="submit"><img src="/images/check.svg" alt="like"></button>
+                <button class="like" id="like" type="submit"><img src="/images/check.png" alt="like"></button>
             </form>
             <div class="userInfo">
                     <div class="overUser">
