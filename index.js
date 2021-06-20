@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
 const { ObjectId } = require('mongodb');
 const path = require("path");
-const currentUserId = "60af7f7f4bb8382860d3e978";
+const currentUserId = '60af7f7f4bb8382860d3e978';
 
 let db = null;
 async function connectDB() {
@@ -34,6 +34,7 @@ app.use(express.json());
 app.get('/', async (req, res) => {
   const query = {};
   const shows = await db.collection('Shows').findOne(query);
+  console.log(shows)
   res.render('home', {title:"NetMatch", shows})
 })
 
@@ -90,18 +91,16 @@ app.post('/dislike', async (req, res) => {
 })
 
 app.get('/matches', async (req, res) => {
-  const query = {}
-  const shows = await db.collection('Shows').find(query).toArray();
-    // const queryId = {_id: ObjectId(currentUserId)};
-    // let currentUser = await db.collection('profile').findOne(queryId);
-    // const queryMovie = {_id: {$in:currentUser.liked}}
-    // let myLikes = await db.collection('Shows').find(queryMovie).toArray();
-    // console.log(queryMovie)
-    res.render('matches', {title:"NetMatch: Matches", shows})
+    const queryId = {_id: ObjectId(currentUserId)};
+    let currentUser = await db.collection('profile').findOne(queryId);
+    const queryMovie = {id: {$in:currentUser.liked}}
+    let myLikes = await db.collection('Shows').find(queryMovie).toArray();
+    console.log(queryMovie)
+    console.log(myLikes)
+    res.render('matches', {title:"NetMatch: Matches", myLikes})
 })
 
 app.use(function (req, res, next) {
-  
   res.status(404).send('404: Page not found')
 })
 
