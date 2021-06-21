@@ -4,7 +4,8 @@
   "description": "package json",
   "main": "index.js",
   "engines": {
-    "node": "15.14.0"
+    "node": "15.14.0",
+    "nodemon": "7.10.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
