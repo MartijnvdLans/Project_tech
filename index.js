@@ -1,7 +1,5 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
-const slug = require('slug');
 const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
 const { ObjectId } = require('mongodb');
@@ -10,7 +8,7 @@ const currentUserId = '60af7f7f4bb8382860d3e978';
 
 let db = null;
 async function connectDB() {
-  const url = process.env.DB_URL;
+  const url = process.env.DB_URI;
   const options = { useUnifiedTopology: true };
   const client = new MongoClient(url, options)
   await client.connect();
@@ -25,7 +23,7 @@ connectDB()
     console.log(error)
   })
 
-  app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
@@ -104,4 +102,4 @@ app.use(function (req, res, next) {
   res.status(404).send('404: Page not found')
 })
 
-app.listen(port, () => {});
+app.listen(process.env.PORT || 3000, () => {});
