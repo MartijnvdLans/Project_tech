@@ -76,7 +76,6 @@ section.likesOp h2 {
 section.userPf {
     width: 100%;
     height: 90vh;
-    background-image: url('../images/undercover.jpg');
     position: absolute;
     background-size: cover;
     background-position: center;
@@ -243,6 +242,55 @@ ul {
     list-style-type: none;
 }
 
+/* CSS voor het hulp scherm */
+
+#hulp {
+    position: fixed;
+    height: 100%;
+    width:100%;
+    left: 0;
+    top: 0; 
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100
+}
+
+#hulp button {
+    position: absolute;
+    bottom: 3em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    background-color: #6eeff8;
+    border: none;
+    padding: .5em 1em;
+    border-radius: 1em;
+}
+
+#hulp img {
+    position: absolute;
+    bottom: 9em;
+}
+
+#hulp img:nth-child(1) {
+    left: 0;
+}
+
+#hulp img:nth-child(2) {
+    right: .5em;
+}
+
+#hulp-picture {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 99;
+    width: 50px;
+}
+
+.none {
+    display: none;
+}
+
 /* Hier staat alles voor de animaties */
 
 .right {
@@ -259,6 +307,12 @@ ul {
     animation-fill-mode: forwards;
 }
 
+.infoAnimation {
+    animation-name: info;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
 @keyframes toleft {
     from {left:0}
     to {left:-120%}
@@ -267,4 +321,19 @@ ul {
 @keyframes toright {
     from {right:0}
     to {right:-120%}
+}
+
+@keyframes info {
+    0% {transform: translateX(0%)}
+    10% {transform: translateX(-20%)}
+    20% {transform: translateX(0%)}
+    30% {transform: translateX(-20%)}
+    40% {transform: translateX(0%)}
+    50% {transform: translateX(0%)}
+    60% {transform: translateX(20%)}
+    70% {transform: translateX(0%)}
+    80% {transform: translateX(20%)}
+    90% {transform: translateX(0%)}
+    100% {transform: translateX(0%)}
+
 }

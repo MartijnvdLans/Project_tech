@@ -3,6 +3,19 @@ const dislikeButton = document.getElementById('dislike');
 const personProfile = document.getElementById('userPf');
 const likeForm = document.getElementById('likeForm');
 const dislikeForm = document.getElementById('dislikeForm');
+const snap = document.getElementById('snapHet');
+const hulp = document.getElementById('hulp');
+const hulpPic = document.getElementById('hulp-picture');
+
+function openHulp() {
+    hulp.classList.remove('none');
+    personProfile.classList.add('infoAnimation');
+}
+
+function closeHulp() {
+    hulp.classList.add('none');
+    personProfile.classList.remove('infoAnimation');
+}
 
 function likeUser() {
     personProfile.classList.add('right');
@@ -14,8 +27,10 @@ function dislikeUser() {
     dislikeForm.submit();
 };
 
-likeButton.addEventListener('click', likeUser)
-dislikeButton.addEventListener('click', dislikeUser)
+likeButton.addEventListener('click', likeUser);
+dislikeButton.addEventListener('click', dislikeUser);
+snap.addEventListener('click', closeHulp);
+hulpPic.addEventListener('click', openHulp);
 
 personProfile.addEventListener('touchstart', handleTouchStart, false);        
 personProfile.addEventListener('touchmove', handleTouchMove, false);

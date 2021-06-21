@@ -6,10 +6,16 @@
 <body class="matchingPage">
 
     <main class="swipe_page">
+        <section id="hulp" class="none">
+            <img src="/images/links.png" alt="swipe links om te disliken">
+            <img src="/images/rechts.png" alt="swipe rechts om te liken">
+            <button id="snapHet">Ik snap het!</button>
+        </section>
         <section class="likesOp">
             <h2>Er zijn geen series om te liken!</h2>
         </section>
         <section class="userPf" id="userPf">
+            <img id="hulp-picture" src="/images/question.png" alt="klik voor hulp">
             <img class="cover-picture" src="/images/<%= shows.foto %>.jpg" alt="<%= shows.name %>" 
             srcset="/images/<%= shows.foto%>-250.jpg 100w,
                     /images/<%= shows.foto%>.jpg 2500w">
