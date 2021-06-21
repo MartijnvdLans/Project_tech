@@ -23,27 +23,31 @@ connectDB()
     console.log(error)
   })
 
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.json());
-app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")))
+app.use(express.json())
+app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 app.get('/', async (req, res) => {
-  const query = {};
-  const shows = await db.collection('Shows').findOne(query);
-  console.log(shows)
+  const query = {beoordeeld: false}
+  const shows = await db.collection('Shows').findOne(query)
   res.render('home', {title:"NetMatch", shows})
 })
 
 app.post('/like', async (req, res) => {
+  const queryList = { beoordeeld: false };
+  const shows = await db.collection('Shows').findOne(queryList);
+  await db.collection('Shows').updateOne(queryList, {
+  $set: {beoordeeld: true}
+  });
+
   const query = {}
-  const shows = await db.collection('Shows').findOne(query);
   const update = {
     "$push": {
-      "liked": (req.body.id)
+      "liked": (req.body.id),
     }
-  };
+  }
   // Return the updated document instead of the original document
   const options = { returnNewDocument: true };
   return db.collection('profile').findOneAndUpdate(query, update, options)
@@ -55,7 +59,7 @@ app.post('/like', async (req, res) => {
       }
       setTimeout(animation, 1000);
       function animation() {
-        res.render('home', {title: "Netmatch", shows})
+        res.redirect('/')
       }
     })
     
@@ -65,8 +69,13 @@ app.post('/like', async (req, res) => {
 })
 
 app.post('/dislike', async (req, res) => {
+  const queryList = { beoordeeld: false };
+  const shows = await db.collection('Shows').findOne(queryList);
+  await db.collection('Shows').updateOne(queryList, {
+  $set: {beoordeeld: true}
+  });
+
   const query = {}
-  const shows = await db.collection('Shows').findOne(query);
   const update = {
     "$push": {
       "disliked": (req.body.id)
@@ -83,7 +92,7 @@ app.post('/dislike', async (req, res) => {
       }
       setTimeout(animation, 1000);
       function animation() {
-        res.render('home', {title: "Netmatch", shows})
+        res.redirect('/')
       }
     })
 })

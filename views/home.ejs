@@ -11,9 +11,7 @@
             <img src="/images/rechts.png" alt="swipe rechts om te liken">
             <button id="snapHet">Ik snap het!</button>
         </section>
-        <section class="likesOp">
-            <h2>Er zijn geen series om te liken!</h2>
-        </section>
+        <% if (shows) { %>
         <section class="userPf" id="userPf">
             <img id="hulp-picture" src="/images/question.png" alt="klik voor hulp">
             <img class="cover-picture" src="/images/<%= shows.foto %>.jpg" alt="<%= shows.name %>" 
@@ -35,6 +33,11 @@
                     </div>
             </div>
         </section>
+        <% } else { %>
+            <section class="likesOp">
+                <h2>Er zijn geen series om te liken!</h2>
+            </section>
+        <% } %>
     </main>
 
         <%- include('layouts/footer.ejs') -%>
