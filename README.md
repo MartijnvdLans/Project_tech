@@ -2,7 +2,7 @@
 
 # NetMatch
 
-Netmatch is een app waaop je met gebruikers kunt matchen. Wat deze app anders maakt is dat het op basis van de series die jij leuk vind zou zijn! Wanneer je een serie leuk vind voeg je deze toe aan je profiel en krijg je hierdoor een aantal matches
+NetMatch is een app waarbij je series die jij mogelijk leuk gaat vinden kunt liken op een leuke manier, net zoals bij Tinder en andere datingsapp door te swipen om series die je leuk vind. Op de home/explore scherm kun je series vinden met een beschrijving er van er bij! Zo kun je zien waar de serie over gaat en wat voor thema de cover er van je geeft.
 
 ## Feature
 
