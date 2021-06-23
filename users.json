@@ -1,33 +1,61 @@
 [{
   "name": "La Casa de Papel",
   "year": 2017,
-  "lastEp": "doorlopend",
+  "lastEp": "ongoing",
   "seizoenen": 2,
-  "foto": "casa.jpg",
-  "desc": "Money Heist (Spanish: La casa de papel, 'The House of Paper') is a Spanish heist crime drama television series created by Álex Pina. The series traces two long-prepared heists led by the Professor (Álvaro Morte), one on the Royal Mint of Spain, and one on the Bank of Spain."
+  "foto": "casa",
+  "desc": "Money Heist (Spanish: La casa de papel, 'The House of Paper') is a Spanish heist crime drama television series created by Álex Pina. The series traces two long-prepared heists led by the Professor (Álvaro Morte), one on the Royal Mint of Spain, and one on the Bank of Spain.",
+  "beoordeeld": false,
+  "id": "x"
 },
 {
   "name": "The Vampire Diaries",
   "year": 2009,
   "lastEp": 2017,
   "seizoenen": 8,
-  "foto": "vampire_diaries.jpg",
-  "desc": "The series is set in the fictional town of Mystic Falls, Virginia, a town charged with supernatural history. It follows the life of Elena Gilbert (Nina Dobrev), a teenage girl who has just lost both parents in a car accident, as she falls in love with a 162-year-old vampire named Stefan Salvatore (Paul Wesley)."
+  "foto": "vampire_diaries",
+  "desc": "The series is set in the fictional town of Mystic Falls, Virginia, a town charged with supernatural history. It follows the life of Elena Gilbert (Nina Dobrev), a teenage girl who has just lost both parents in a car accident, as she falls in love with a 162-year-old vampire named Stefan Salvatore (Paul Wesley).",
+  "beoordeeld": false,
+  "id": "x"
 },
 {
   "name": "Prison Break",
   "year": 2005,
   "lastEp": 2017,
   "seizoenen": 5,
-  "foto": "prison_break.jpg",
-  "desc": "Undercover is a 2019 Belgian-Dutch Dutch-language crime drama streaming television series starring Tom Waes, Anna Drijver and Frank Lammers. The plot revolves around a story inspired by real-life events, where undercover agents infiltrate a drug kingpin's operation in Limburg, a Flemish province bordering the Netherlands."
+  "foto": "prison_break",
+  "desc": "The series revolves around two brothers, Lincoln Burrows (Dominic Purcell) and Michael Scofield (Wentworth Miller); Burrows has been sentenced to death for a crime he did not commit, and Scofield devises an elaborate plan to help his brother escape prison and clear his name.",
+  "beoordeeld": false,
+  "id": "x"
 },
 {
   "name": "Undercover",
   "year": 2019,
-  "lastEp": "doorlopend",
+  "lastEp": "ongoing",
   "seizoenen": 2,
-  "foto": "undercover.jpg",
-  "desc": "The series revolves around two brothers, Lincoln Burrows (Dominic Purcell) and Michael Scofield (Wentworth Miller); Burrows has been sentenced to death for a crime he did not commit, and Scofield devises an elaborate plan to help his brother escape prison and clear his name."
+  "foto": "undercover",
+  "desc": "Undercover is a 2019 Belgian-Dutch Dutch-language crime drama streaming television series starring Tom Waes, Anna Drijver and Frank Lammers. The plot revolves around a story inspired by real-life events, where undercover agents infiltrate a drug kingpin's operation in Limburg, a Flemish province bordering the Netherlands.",
+  "beoordeeld": false,
+  "id": "x"
+},
+{
+  "name": "The 100",
+  "year": 2014,
+  "lastEp": 2020,
+  "seizoenen": 7,
+  "foto": "the100",
+  "desc": "Set ninety-seven years after a nuclear war has destroyed civilization, when a spaceship housing humanity's lone survivors sends one hundred juvenile delinquents back to Earth, in hopes of possibly re-populating the planet.",
+  "beoordeeld": false,
+  "id": "x"
+},
+{
+  "name": "All American",
+  "year": 2018,
+  "lastEp": "ongoing",
+  "seizoenen": 3,
+  "foto": "all_american",
+  "desc": "When a star high school football player from South Central is recruited to play for Beverly Hills High School, two separate worlds collide.",
+  "beoordeeld": false,
+  "id": "x"
 }
   ]
